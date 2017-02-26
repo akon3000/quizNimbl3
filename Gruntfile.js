@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 
         },
 
-        connect: {
+        connect: {   // << create web-server
             server: {
                 options: {
                     port: 7000,
@@ -32,19 +32,7 @@ module.exports = function(grunt) {
             }
         },
 
-        babel: {
-            options: {
-                sourceMap: true,
-                presets: ['es2015']
-            },
-            dist: {
-                files: {
-                    '<%= dir.public_js %>/app.js': '<%= dir.src_js %>/app.js'
-                }
-            }
-        },
-
-        sass: {
+        sass: { // << CSS Processor (Compile scss file to css file)
             options: {
                 sourceMap: true
             },
@@ -55,7 +43,7 @@ module.exports = function(grunt) {
             }
         },
 
-        watch: {
+        watch: { // << Livereload convenient for develop
             livereload: {
                 files: [
                     '<%= dir.public %>/*.html',
@@ -77,7 +65,7 @@ module.exports = function(grunt) {
             }
         },
 
-        injector: {
+        injector: { // << inject Javascript file to index.html
             dev: {
                 files: {
                      "<%= dir.public %>/index.html": [
@@ -93,7 +81,7 @@ module.exports = function(grunt) {
             }
         },
 
-         wiredep: {
+         wiredep: { // << inject components (css, js) file to index.html
             options: {
                 devDependencies: true
             },
@@ -102,7 +90,7 @@ module.exports = function(grunt) {
             }
         },
 
-        webpack: {
+        webpack: { // << Compile Javascript es6 to Javascript es5, ** I'm not sure
             dev: {
                 entry: ['./src/js/app.js'],
                 output: {
