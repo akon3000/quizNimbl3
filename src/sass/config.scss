@@ -1,0 +1,75 @@
+
+/* font config */
+
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+}
+
+/* devices screen */
+
+@mixin respond-to($media) {
+    @if $media == mobile {
+        @media only screen and (max-width: 767px) { @content; }
+    }
+    @else if $media == tablet {
+        @media only screen and (max-width: 1023px) and (min-width: 768px) { @content; }
+    }
+    @else if $media == desktop {
+        @media only screen and (min-width: 1024px) { @content; }
+    }
+}
+
+/* variables config */
+
+$puple01: #4C1367; $puple02: #702283;
+$gray01: #8899AA; $gray02: #64707C; $gray03: #626272; $gray04: #F8F8F8; $gray05: #ddd;
+$pink01: #D18EE2;
+$yello01: #EB8B2D;
+$white01: #ffffff;
+$fontbase: 10px;
+$whitespace: 10px;
+$radius: 5px;
+
+/* global config */
+
+body {
+    font-family: "Montserrat-Regular";
+    font-size: $fontbase;
+    background-color: $gray04;
+}
+img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+
+.row { margin: 0; }
+.borderless td, .borderless th { border: none !important; }
+.btn-cyc { background-color: $gray02; color: $white01; padding: 13px 10px; }
+.btn-cyc:hover { background-color: $gray01; color: $gray02;  }
+.boxDetail { border: solid 1px $gray05; border-radius: $radius; background-color: $white01; padding: $whitespace*2; }
+
+@mixin blackdrop() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+}
+
+@mixin rotate($rules) {
+    -ms-transform: rotate($rules);
+    -webkit-transform: rotate($rules);
+    -moz-transform: rotate($rules);
+    transform: rotate($rules);
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 0.8s ease;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "quiz_nimble",
+  "description": "for testing interview with Nimbl3",
+  "main": "index.js",
+  "authors": [
+    "Tinnapop <vonmane001@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}

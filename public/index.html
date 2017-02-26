@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Nimbl3 - interview</title>
+
+        <!-- bower:css -->
+        <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="components/font-awesome/css/font-awesome.css" />
+        <!-- endbower -->
+
+        <!-- injector:css -->
+        <link rel="stylesheet" href="css/app.css">
+        <!-- endinjector -->
+
+        <!-- bower:js -->
+        <script src="components/jquery/dist/jquery.js"></script>
+        <script src="components/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- endbower -->
+
+        <!-- injector:js -->
+        <script src="js/app.js"></script>
+        <!-- endinjector -->
+
+    </head>
+    <body>
+
+        <div class="app-nimbl3">
+
+            <!-- Menu application -->
+            <div class="menu" size-w="248px">
+                <div class="item logo">
+                    <img src="icons/ logo-white.svg" />
+                </div>
+                <div class="item user">
+                    <span>Hello, Ton</span>
+                    <br />
+                    Demo Order
+                </div>
+                <div class="item" v-for="(x, id) in list" v-on:click="select(id)" v-bind:class="{'active': id === active}">
+                    <img v-bind:src="'icons/' + (id === active ? x.img_active : x.img_default)" />
+                    <span>{{x.msg}}</span>
+                    <div class="pull-right" v-if="x.collape">
+                        <img v-bind:src="'icons/' + (id === active ? 'arrow-white.svg' : 'arrow-purple.svg')" />
+                    </div>
+                </div>
+                <div class="item powerby">
+                    <img src="icons/poweredby.svg" />
+                </div>
+            </div>
+
+            <!-- blackdrop -->
+            <div class="blackdrop hide" v-on:click="close()"></div>
+
+            <!-- Content application -->
+            <div class="content">
+
+               <!-- headBar -->
+               <div class="headBar">
+                   <div class="search">
+                       <i class="fa fa-angle-left toggleMenu" v-on:click="open()"></i>
+                       <img class="magnifying" src="icons/magnifying-glass.svg" width="20" />
+                       <input type="text" placeholder="Search here" />
+                   </div>
+                   <div class="user">
+                       <div class="pull-left">
+                           <span>Hello, Ton</span>
+                           <br />
+                           Demo Order
+                       </div>
+                       <div class="pull-right">
+                           <i class="fa fa-angle-down"></i>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="add-opa hide"></div>
+
+               <!-- order -->
+               <div class="orderContent">
+
+                   <div class="item f0">
+                        <span>TEST Thailand</span>
+                        <br />
+                        <small>Rama 13, Bangkok Thailand</small>
+                   </div>
+
+                   <div class="item f1">
+                        <h2> <span>Orders /</span> TEST AX 00000XX </h2>
+                   </div>
+
+                   <div class="item f2">
+
+                      <div class="f2-1 boxDetail">
+                          <div class="row">
+                             <div class="col-sm-6"> 
+                                <span>TEST Thailand</span>
+                                <br />
+                                <small>Rama 13, Bangkok Thailand</small>
+                                <br />
+                                <small><b>+66 101 xxx 74 xz</b></small>
+                                <p></p>
+                             </div>
+                             <div class="col-sm-3">
+                                <div class="text-center">
+                                    <p><b>Owned By</b></p>
+                                    <select class="form-control">
+                                        <option>Ton Kung</option>
+                                    </select>
+                                    <p></p>
+                                </div>
+                             </div>
+                             <div class="col-sm-3">
+                                <div class="text-center">
+                                    <p><b>Status</b></p>
+                                    <select class="form-control">
+                                        <option>Test ex</option>
+                                    </select>
+                                    <p></p>
+                                </div>
+                             </div>
+                          </div>
+                      </div>
+
+                      <div class="f2-2">
+                          <button class="btn btn-cyc">Update Orders</button>
+                      </div>
+
+                      <div class="f2-3">
+                            <label>Owned By</label>
+                            <select class="form-control">
+                                <option>Ton Kung</option>
+                            </select>
+                      </div>
+
+                      <div class="f2-4">
+                            <label>Status</label>
+                            <select class="form-control">
+                                <option>Test ex</option>
+                            </select>
+                      </div>
+
+                      <div class="f2-5">
+                          <div class="boxDetail">
+                                <div class="f2-5-1 head">
+                                    <div><label>Estimated Delivery Date</label></div>
+                                    <div><input class="form-control" /></div>
+                                </div>
+                                <div class="f2-5-1">
+                                    <div><label>Sub-total</label></div>
+                                    <div>40.033</div>
+                                </div>
+                                    <div class="f2-5-1">
+                                    <div><label>Shpping</label></div>
+                                    <div><input class="form-control" /></div>
+                                </div>
+                                <div class="f2-5-1">
+                                    <div><label>Special Discount</label></div>
+                                    <div><input class="form-control" /></div>
+                                </div>
+                                <div class="f2-5-1 head">
+                                    <div><label>Tax</label></div>
+                                    <div><button class="btn btn-default">20</button> 33%</div>
+                                </div>
+                                <div class="f2-5-1">
+                                    <div><h4>Total</h4></div>
+                                    <div><h4>THB 77,777x.03</h4></div>
+                                </div>
+                          </div>
+                      </div>
+
+                   </div>
+
+                   <div class="item f3">
+                       <div class="boxDetail">
+                            <img src="icons/ripple.svg" v-show="keyup" />
+                            <img src="icons/icon_plus.svg" v-show="!keyup" class="rotate" v-bind:class="{'active': focus}" />
+                            <div class="add-fill">
+                                <input type="text" placeholder="Add new Products" v-on:focus="opaOn()" v-on:keyup="opaKeyup()" v-on:blur="opaOff()" v-model="order" />
+                            </div>
+                       </div>
+                   </div>
+
+                   <div class="item f4">
+                       <div class="boxDetail table-responsive">
+                          <table class="table borderless">
+                              <thead>
+                                 <tr>
+                                     <th>sku</th>
+                                     <th>description</th>
+                                     <th>brand</th>
+                                     <th>list price</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                     <td>CODE XS 7777</td>
+                                     <td>......</td>
+                                     <td>......</td>
+                                     <td>......</td>
+                                 </tr>
+                              </tbody>
+                          </table>
+                       </div>
+                   </div>
+
+                   <div class="item f5">
+                       <label>Remarks</label>
+                       <div class="boxDetail">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                       </div>
+                   </div>
+
+                   <div class="item f6">
+                       <div class="f6-1 head">
+                           <div><label>Estimated Delivery Date</label></div>
+                           <div><input class="form-control" /></div>
+                       </div>
+                        <div class="f6-1">
+                           <div><label>Sub-total</label></div>
+                           <div>40.033</div>
+                       </div>
+                        <div class="f6-1">
+                           <div><label>Shpping</label></div>
+                           <div><input class="form-control" /></div>
+                       </div>
+                       <div class="f6-1">
+                           <div><label>Special Discount</label></div>
+                           <div><input class="form-control" /></div>
+                       </div>
+                       <div class="f6-1 head">
+                           <div><label>Tax</label></div>
+                           <div><button class="btn btn-default">20</button> 33%</div>
+                       </div>
+                       <div class="f6-1">
+                           <div><h4>Total</h4></div>
+                           <div><h4>THB 77,777x.03</h4></div>
+                       </div>
+                   </div>
+
+               </div>
+            </div>
+            
+        </div>
+
+    </body>
+</html>
