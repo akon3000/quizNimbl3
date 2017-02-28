@@ -3,8 +3,8 @@ import Vue from 'vue'
 const Menu = Vue.extend({
     data: function() {
       return {
-        active: 1,
-        list: [
+        active: 1, // index for active menu
+        list: [ // item menu.
             { msg: "Dashboard", img_default: 'controls-purple.svg', img_active: 'controls-white.svg' },
             { msg: "Orders", img_default: 'shopping-cart-purple.svg', img_active: 'shopping-cart-white.svg' },
             { msg: "Companies", img_default: 'factory-purple.svg', img_active: 'factory-white.svg', collape: true },
@@ -23,7 +23,6 @@ const Menu = Vue.extend({
             this.active = id
         }
     }
-
 });
 
 export default Menu;

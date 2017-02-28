@@ -1,0 +1,104 @@
+
+/* devices screen */
+@mixin respond-to($media) {
+    @if $media == mobile {
+        @media only screen and (max-width: 767px) { @content; }
+    }
+    @else if $media == tablet {
+        @media only screen and (max-width: 1023px) and (min-width: 768px) { @content; }
+    }
+    @else if $media == desktop {
+        @media only screen and (min-width: 1024px) { @content; }
+    }
+}
+
+/* class helper */
+
+@mixin HeadBar() { // << use in desktop & tablet screen [.app-nimble3 .content .headBar]
+    .headBar  {
+        display: flex;
+        background-color: $white01;
+        border-bottom: solid 1px $gray05;
+        .user { display: block; flex-grow: 0; }
+        .search {
+            display: block; 
+            flex-grow: 1; 
+            background-color: none;
+            .magnifying { order: 1; }
+            .toggleMenu { display: none; }
+            input {
+                width: 80%;
+                text-align: left;
+                padding: $whitespace*0.7;
+                border: none;
+                color: $gray03;
+                @include inputPlacholder($gray03);
+            }
+        }
+    }
+}
+
+@mixin OrderContent() { // style for tablet & desktop screen. [.app-nimble3 .content .orderContent]
+    .orderContent {
+        .c-owner, .c-owner-m { display: none; }
+        .c-c-order, .c-summary, .c-owner-s { display: block; }
+        .c-owner-s .boxDetail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .c-owner-s {
+            .ow-s { display: inline-block; max-width: 100px; select {font-size: 1.2em; } }
+            .ow-btn { padding-top: 10px; }
+        }
+    }
+}
+
+@mixin summary() { 
+    .sum-item { 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $whitespace $whitespace 0 $whitespace;
+        h4 { margin: 0; }
+        input { max-width: $whitespace*12; }
+        &:nth-child(1) { flex-grow: 2; } 
+        &:nth-child(2) { flex-grow: 1; }
+    }
+    .sum-item.head { padding-bottom: $whitespace; border-bottom:solid 1px $gray05; }
+    &:last-child { padding-bottom: $whitespace; }
+}
+
+@mixin mainMenu() { // << use in desktop & tablet screen [.app-nimble3 .menu]
+    min-width: 248px;
+    position: static;  
+    overflow-y: hidden; 
+    .item.user { display: none; }
+}
+
+@mixin inputPlacholder($value) { // << use in HTML tag [input]
+    &::-webkit-input-placeholder { color: $value; }
+    &::-moz-placeholder { color: $value; }
+    &:-ms-input-placeholder { color: $value; }
+}
+
+@mixin blackdrop() { // << use for render fill black opacity
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+}
+
+@mixin rotate($rules) { // rotate everything.
+    -ms-transform: rotate($rules);
+    -webkit-transform: rotate($rules);
+    -moz-transform: rotate($rules);
+    transform: rotate($rules);
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 0.8s ease;
+}

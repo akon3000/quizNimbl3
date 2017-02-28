@@ -1,273 +1,32 @@
 
 /* import config */
-@import 'config.scss';
+@import 'config.scss'; 
 
+/* import function Mix */
+@import 'classMix.scss';
+
+/* import class menu style */
+@import 'menu.scss';
+
+/* import class content style */
+@import 'content.scss';
+
+/* main class */
 .app-nimbl3 {
     display: flex;
     flex-direction: row;
 }
 
-.app-nimbl3 .menu {
-    order: 1;
-    flex-grow: 0;
-    min-width: 248px;
-    background-color: $puple02;
-    transition: width 0.2s linear;
-
-    .item.logo, {
-        text-align: center;
-        padding: $whitespace*2 $whitespace*4.5;
-        img { width: 300px; }
-    }
-    .item.powerby {
-        padding: $whitespace*6 0 $whitespace*3 0;
-        img { width: 100px; margin-left: $whitespace*6;  }
-    }
-    .item.user {
-        display: none;
-        background-color: $white01;
-        color: $gray03;
-        padding: $whitespace $whitespace*3;
-        span { color: $yello01; padding: 0; }
-    }
-
-    .item.active { 
-        color: $white01;
-        position: relative;
-        &:before  {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: $whitespace;
-            background-color: #65b32E;
-            border-radius: $whitespace;
-            height: $whitespace*4;
-            transform: translate(-50%, -50%);
-        }
-    }
-
-    .item {
-        font-size: 1.5em;
-        color: $pink01;
-        cursor: pointer;
-        padding: $whitespace*3 $whitespace*3;
-        
-        img { width: 17px; }
-        span { padding-left: 10px; }
-    }
-
-    .item.logo,.item.active { background-color: $puple01; }
-
-    @include respond-to(mobile) { 
-        width: 0;
-        min-width: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 2;
-        overflow-y: auto;
-        .item.user { display: block; }
-    }
-}
-
+/* Set background opacity black,
+ * Use with menu class on mobile size 
+ */
 .app-nimbl3 .blackdrop { 
     @include blackdrop(); 
-}
-
-.app-nimbl3 .content {
-    order: 2;
-    flex-grow: 1;
-    max-width: 100%;
-    min-height: 100vh;
-    position: relative;
-
-    .add-opa { @include blackdrop(); }
-
-    .headBar {
-        display: flex;
-        flex-wrap: warp;
-        background-color: $white01;
-        border-bottom: solid 1px $gray05;
-        .user, .search {  font-size: 1.5em; }
-        .search { 
-            flex-grow: 1;
-            padding: $whitespace*2.6;
-
-            .toggleMenu {
-                display: none;
-                color: $yello01;
-                font-size: 2.2em;
-                cursor: pointer;
-            }
-            input[type=text] {
-                width: 80%;
-                margin-left: $whitespace;
-                padding: $whitespace*0.5;
-                border: none;
-                &:focus { outline: none;}
-            }
-        }
-        .user {
-            flex-grow: 0;
-            padding: $whitespace*2;
-            border-left: solid 1px $gray05;
-            .pull-left { padding-right: $whitespace*2; span { color: $yello01; } }
-            .pull-right { padding-top: $whitespace*0.7; font-size: 1.5em; }
-        }
+    @include respond-to(tablet) { 
+       display: none;
     }
-
-    .orderContent {
-        padding: $whitespace*3;
-        .item { padding-bottom: $whitespace*3; }
-        &:last-child { padding-bottom: 0; }
-
-        .item.f0 {
-            display: none;
-            text-align: center;
-            font-size: 1.9em;
-            padding: $whitespace*2;
-            background-color: $white01;
-            box-shadow: 0 -1px 3px 0 rgba(0,0,0,0.11), 0 2px 3px 0 rgba(98,98,114,0.21); 
-            span { color: $gray03; } 
-            small { color: $gray01; } 
-        }
-        .item.f1 h2 span { color: $gray05; }
-        .item.f2 {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            .f2-1 { 
-                width: 80%;
-                b { font-size: 1.2em; }
-                span { font-size: 1.9em; color: $gray03; } 
-                small { font-size: 1.1em; color: $gray01; }
-                select { border:solid 2px $gray05; font-size: 1.1em;  }
-                select option { color: $gray03; }
-            }
-            .f2-2 { width:20%; font-size: 1.5em; text-align: right; span { padding-right: $whitespace*3; } }
-            .f2-3, .f2-4 { display: none; color: $gray02; }
-            .f2-5 { 
-               display: none;
-               .boxDetail {
-                   .f2-5-1 {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        padding: $whitespace $whitespace 0 $whitespace;
-                        h4 { margin: 0; }
-                        input { max-width: 120px; }
-                        &:nth-child(1) { flex-grow: 2; } 
-                        &:nth-child(2) { flex-grow: 1; }
-                   }
-                   .f2-5-1.head { padding-bottom: $whitespace; border-bottom:solid 1px $gray05; }
-               }
-            }
-            .f6-1.head { padding-bottom: 10px; border-bottom:solid 1px $gray05; }
-        }
-        .item.f3 {
-            img { width: 25px; height: 25px; }
-            .boxDetail { display: flex; }
-            .rotate { @include rotate(0deg); }
-            .rotate.active { @include rotate(45deg); }
-            .add-fill { 
-                flex-grow: 2;
-                padding: 0 $whitespace;
-                align-items: center;
-                input { border:none; width: 100%; font-size: 1.3em; padding: $whitespace*0.3;  &:focus { outline: none; } }
-            } 
-        }
-        .item.f4 {
-            table {
-                th { 
-                    text-transform: uppercase; 
-                    font-size: 0.9em; 
-                    color: gray03; 
-                    min-width: $whitespace*15;
-                    padding: 0 $whitespace*2 $whitespace $whitespace*2;
-                } 
-                td { padding: $whitespace*2; }
-                thead tr, tbody tr { border-bottom: solid 1px $gray05; }
-                tbody tr:last-child {
-                    border: none;
-                }
-            }
-            .boxDetail { padding: $whitespace*2 0; } 
-        }
-        .item.f5 { font-size: 1.3em; .boxDetail { color:$gray01; } }
-        .item.f6 {
-            position: fixed;
-            bottom: $whitespace*2;
-            right: $whitespace*3;
-            z-index: 100;
-            width: 350px;
-            background-color:$white01;
-            box-shadow: 0 2px 14px 0 rgba(0,0,0,0.12);
-            border-radius: $radius;
-            .f6-1 { 
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: $whitespace $whitespace 0 $whitespace;
-                h4 { margin: 0; }
-                input { max-width: $whitespace*12; }
-                &:nth-child(1) { flex-grow: 2; } 
-                &:nth-child(2) { flex-grow: 1; }
-            }
-            .f6-1.head { padding-bottom: $whitespace; border-bottom:solid 1px $gray05; }
-            
-        }
-    }
-
-    @include respond-to(mobile) { 
-       
-       .headBar  { flex-direction: column;  }
-       .headBar .search { 
-           display: flex;
-           justify-content: space-between;
-           background-color: $puple01;
-           .toggleMenu { order: 1; display: block; }
-           input { 
-               order: 2; 
-               background-color: transparent; 
-               text-align: center; 
-               color: $white01;
-               margin-left: 0 !important;
-               &::-webkit-input-placeholder { color: $white01; }
-               &::-moz-placeholder { color: $white01; }
-               &:-ms-input-placeholder { color: $white01; }
-           }
-           .magnifying  { order: 3; } 
-       }
-       .headBar .user { display: none; }
-
-       .orderContent { padding: 0; }
-       .orderContent .item.f0 { display: block; }
-       .orderContent .item.f1, .item.f6 { display: none; }
-       .orderContent .item.f2 {
-           align-items: flex-start; 
-           flex-direction: column;
-           
-           .f2-1 {
-               display: none;
-           }
-           .f2-2, .f2-3, .f2-4, .f2-5 {
-               padding: 30px $whitespace*1.5 0 $whitespace*1.5;
-           }
-           .f2-3, .f2-4, .f2-5 { display: block; width: 100% }
-       }
-       .orderContent .item.f3,
-       .orderContent .item.f4,
-       .orderContent .item.f5 { padding: $whitespace*1.5; }
-
-    }
-    @include respond-to(tablet) {
-       .orderContent .item.f2 {
-           align-items: flex-start; 
-           flex-direction: column;
-           .f2-1 {  width: 100%; }
-           .f2-2 { padding-top: 30px; } 
-       }
+    @include respond-to(desktop) {
+       display: none;
     }
 }
+

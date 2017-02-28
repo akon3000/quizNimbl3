@@ -4,7 +4,7 @@
   "description": "for testing interview with Nimbl3 ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "grunt build"
   },
   "author": "",
   "license": "ISC",

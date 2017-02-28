@@ -24,10 +24,18 @@ module.exports = function(grunt) {
         },
 
         connect: {   // << create web-server
-            server: {
+            production: {
                 options: {
                     port: 7000,
-                    base: ["<%= dir.public %>"]
+                    base: ["<%= dir.public %>"],
+                    keepalive: true,
+                    open: true
+                }
+            },
+            dev: {
+                options: {
+                    port: 7000,
+                    base: ["<%= dir.public %>"],
                 }
             }
         },
@@ -129,8 +137,8 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.loadNpmTasks('grunt-webpack-dev-servr');
 
     // Grunt tasks(s).
-    grunt.registerTask('default', [ 'sass', 'webpack', 'wiredep', 'injector', 'connect', 'watch' ]);
+    grunt.registerTask('default', [ 'sass', 'webpack', 'wiredep', 'injector', 'connect:dev', 'watch' ]);
+    grunt.registerTask('build', ['sass', 'webpack', 'wiredep', 'injector', 'connect:production']);
 };

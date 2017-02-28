@@ -1,0 +1,123 @@
+
+.app-nimbl3 .content {
+
+    /* style for mobile (Default) */
+    order: 2;
+    flex-grow: 1;
+    max-width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    .add-opa { @include blackdrop(); }
+
+    .headBar {
+        background-color: $puple01;
+        .user, .search {  font-size: 1.5em; }
+        .search { 
+            display: flex;
+            padding: $whitespace*2.6;
+            justify-content: space-between;
+            .toggleMenu { order: 1; color: $yello01; font-size: 2.2em; cursor: pointer; }
+            .magnifying  { order: 3; } 
+             input { 
+               order: 2; 
+               background-color: transparent; 
+               text-align: center; 
+               color: $white01;
+               margin-left: 0 !important;
+               border: none;
+               &:focus { outline: none;}
+               @include inputPlacholder($white01);
+           }
+        }
+        .user {
+            display: none;
+            flex-grow: 0;
+            padding: $whitespace*2;
+            border-left: solid 1px $gray05;
+            .pull-left { padding-right: $whitespace*2; span { color: $yello01; } }
+            .pull-right { padding-top: $whitespace*0.7; font-size: 1.5em; }
+        }
+    }
+
+    .orderContent {
+
+        .item { margin: $whitespace*3 $whitespace*1.5; }
+        .item:first-child { margin: 0 0 $whitespace*3 0 }
+        &:last-child { margin-bottom: 0; }
+
+        .c-owner {
+            text-align: center;
+            font-size: 1.9em;
+            padding: $whitespace*2;
+            background-color: $white01;
+            box-shadow: 0 -1px 3px 0 rgba(0,0,0,0.11), 0 2px 3px 0 rgba(98,98,114,0.21); 
+            span { color: $gray03; } 
+            small { color: $gray01; } 
+        }
+        .c-c-order { 
+            display: none; 
+            h2 span { color: $gray05; } 
+        }
+        .c-add-fill {
+            img { width: 25px; height: 25px; }
+            .boxDetail { display: flex; }
+            .rotate { @include rotate(0deg); }
+            .rotate.active { @include rotate(45deg); }
+            .add-fill { 
+                flex-grow: 2;
+                padding: 0 $whitespace;
+                align-items: center;
+                input { border:none; width: 100%; font-size: 1.3em; padding: $whitespace*0.3;  &:focus { outline: none; } }
+            }
+        }
+        .c-list {
+            table {
+                th { 
+                    text-transform: uppercase; 
+                    font-size: 0.9em; 
+                    color: $gray03; 
+                    padding: 0 $whitespace*2 $whitespace $whitespace*2;
+                } 
+                td { padding: $whitespace*2; }
+                thead tr, tbody tr { border-bottom: solid 1px $gray05; }
+                tbody tr:last-child { border: none; }
+            }
+            .boxDetail { padding: $whitespace*2 0; } 
+        }
+        .c-remarks {
+            font-size: 1.3em; .boxDetail { color:$gray01; }
+        }
+        .c-summary {
+            position: fixed;
+            display: none;
+            bottom: $whitespace*2;
+            right: $whitespace*3;
+            z-index: 100;
+            width: $whitespace*35;
+            background-color:$white01;
+            box-shadow: 0 2px 14px 0 rgba(0,0,0,0.12);
+            border-radius: $radius;
+            @include summary();
+        }
+        .c-owner-s {
+            display: none;
+        }
+        .c-owner-m .boxDetail {
+            @include summary();
+        }
+
+    }
+
+    /* style for tablet */
+    @include respond-to(tablet) { 
+       @include HeadBar();
+       @include OrderContent();
+    }
+
+    /* style for desktop */
+    @include respond-to(desktop) {
+       @include HeadBar();
+       @include OrderContent();
+    }
+}

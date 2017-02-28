@@ -1,0 +1,75 @@
+
+.app-nimbl3 .menu {
+
+    /* style for mobile (Default) */    
+    order: 1;
+    width: 0;
+    flex-grow: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    overflow-y: auto;
+    background-color: $puple02;
+    transition: width 0.2s linear;
+
+    &.mobile { width: 248px; }
+    
+    .item.logo, {
+        text-align: center;
+        padding: $whitespace*2 $whitespace*4.5;
+        img { width: 300px; }
+    }
+
+    .item.powerby {
+        padding: $whitespace*6 0 $whitespace*3 0;
+        img { width: 100px; margin-left: $whitespace*6;  }
+    }
+
+    .item.user {
+        display: block;
+        background-color: $white01;
+        color: $gray03;
+        padding: $whitespace $whitespace*3;
+        span { color: $yello01; padding: 0; }
+    }
+
+    .item.active { 
+        color: $white01;
+        position: relative;
+        &:before  {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: $whitespace;
+            background-color: #65b32E;
+            border-radius: $whitespace;
+            height: $whitespace*4;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .item {
+        font-size: 1.5em;
+        color: $pink01;
+        cursor: pointer;
+        padding: $whitespace*3 $whitespace*3;
+        img { width: 17px; }
+        span { padding-left: 10px; }
+    }
+
+    .item.logo,.item.active { background-color: $puple01; }
+
+    /* style for tablet */
+    @include respond-to(tablet) { 
+       @include mainMenu();
+    }
+
+    /* style for desktop */
+    @include respond-to(desktop) {
+       @include mainMenu();
+    }
+    
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
         <div class="app-nimbl3">
 
             <!-- Menu application -->
-            <div class="menu" size-w="248px">
+            <div class="menu">
                 <div class="item logo">
                     <img src="icons/ logo-white.svg" />
                 </div>
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <!-- blackdrop -->
+            <!-- Menu blackdrop -->
             <div class="blackdrop hide" v-on:click="close()"></div>
 
             <!-- Content application -->
@@ -80,99 +80,97 @@
                <!-- order -->
                <div class="orderContent">
 
-                   <div class="item f0">
+                   <div class="item c-owner">
                         <span>TEST Thailand</span>
                         <br />
                         <small>Rama 13, Bangkok Thailand</small>
                    </div>
 
-                   <div class="item f1">
+                   <div class="item c-c-order">
                         <h2> <span>Orders /</span> TEST AX 00000XX </h2>
                    </div>
 
-                   <div class="item f2">
+                   <div class="item c-owner-s">
 
-                      <div class="f2-1 boxDetail">
-                          <div class="row">
-                             <div class="col-sm-6"> 
-                                <span>TEST Thailand</span>
+                       <div class="boxDetail">
+                            <div>
+                                <label>TEST Thailand</label>
                                 <br />
                                 <small>Rama 13, Bangkok Thailand</small>
                                 <br />
                                 <small><b>+66 101 xxx 74 xz</b></small>
                                 <p></p>
-                             </div>
-                             <div class="col-sm-3">
-                                <div class="text-center">
-                                    <p><b>Owned By</b></p>
+                            </div>
+                            <div>
+                                <div class="ow-s text-center">
+                                    <label>Owned By</label>
                                     <select class="form-control">
                                         <option>Ton Kung</option>
                                     </select>
-                                    <p></p>
                                 </div>
-                             </div>
-                             <div class="col-sm-3">
-                                <div class="text-center">
-                                    <p><b>Status</b></p>
+                                <div class="ow-s text-center">
+                                    <label>Status</label>
                                     <select class="form-control">
                                         <option>Test ex</option>
                                     </select>
-                                    <p></p>
                                 </div>
-                             </div>
-                          </div>
+                            </div>
+                       </div>
+                       
+                       <div class="ow-btn text-right">
+                           <button class="btn btn-cyc">Update Orders</button>
+                       </div>
+                       <hr />
+                   </div>
+      
+                   <div class="item c-owner-m">
+
+                      <div>
+                        <label>Owned By</label>
+                        <select class="form-control">
+                            <option>Ton Kung</option>
+                        </select>
+                        <hr />
                       </div>
 
-                      <div class="f2-2">
-                          <button class="btn btn-cyc">Update Orders</button>
+                      <div>
+                        <label>Status</label>
+                        <select class="form-control">
+                            <option>Test ex</option>
+                        </select>
+                        <hr />
                       </div>
 
-                      <div class="f2-3">
-                            <label>Owned By</label>
-                            <select class="form-control">
-                                <option>Ton Kung</option>
-                            </select>
-                      </div>
-
-                      <div class="f2-4">
-                            <label>Status</label>
-                            <select class="form-control">
-                                <option>Test ex</option>
-                            </select>
-                      </div>
-
-                      <div class="f2-5">
-                          <div class="boxDetail">
-                                <div class="f2-5-1 head">
-                                    <div><label>Estimated Delivery Date</label></div>
-                                    <div><input class="form-control" /></div>
-                                </div>
-                                <div class="f2-5-1">
-                                    <div><label>Sub-total</label></div>
-                                    <div>40.033</div>
-                                </div>
-                                    <div class="f2-5-1">
-                                    <div><label>Shpping</label></div>
-                                    <div><input class="form-control" /></div>
-                                </div>
-                                <div class="f2-5-1">
-                                    <div><label>Special Discount</label></div>
-                                    <div><input class="form-control" /></div>
-                                </div>
-                                <div class="f2-5-1 head">
-                                    <div><label>Tax</label></div>
-                                    <div><button class="btn btn-default">20</button> 33%</div>
-                                </div>
-                                <div class="f2-5-1">
-                                    <div><h4>Total</h4></div>
-                                    <div><h4>THB 77,777x.03</h4></div>
-                                </div>
-                          </div>
-                      </div>
+                      <div class="boxDetail">
+                        <div class="sum-item head">
+                            <div><label>Estimated Delivery Date</label></div>
+                            <div><input class="form-control" /></div>
+                        </div>
+                        <div class="sum-item">
+                            <div><label>Sub-total</label></div>
+                            <div>40.033</div>
+                        </div>
+                        <div class="sum-item">
+                            <div><label>Shpping</label></div>
+                            <div><input class="form-control" /></div>
+                        </div>
+                        <div class="sum-item">
+                            <div><label>Special Discount</label></div>
+                            <div><input class="form-control" /></div>
+                        </div>
+                        <div class="sum-item head">
+                            <div><label>Tax</label></div>
+                            <div><button class="btn btn-default">20</button> 33%</div>
+                        </div>
+                        <div class="sum-item">
+                            <div><h4>Total</h4></div>
+                            <div><h4>THB 77,777x.03</h4></div>
+                        </div>
+                    </div>
 
                    </div>
 
-                   <div class="item f3">
+                   <div class="item c-add-fill">
                        <div class="boxDetail">
                             <img src="icons/ripple.svg" v-show="keyup" />
                             <img src="icons/icon_plus.svg" v-show="!keyup" class="rotate" v-bind:class="{'active': focus}" />
@@ -182,14 +180,13 @@
                        </div>
                    </div>
 
-                   <div class="item f4">
+                   <div class="item c-list">
                        <div class="boxDetail table-responsive">
                           <table class="table borderless">
                               <thead>
                                  <tr>
                                      <th>sku</th>
                                      <th>description</th>
-                                     <th>brand</th>
                                      <th>list price</th>
                                  </tr>
                               </thead>
@@ -198,48 +195,48 @@
                                      <td>CODE XS 7777</td>
                                      <td>......</td>
                                      <td>......</td>
-                                     <td>......</td>
                                  </tr>
                               </tbody>
                           </table>
                        </div>
                    </div>
 
-                   <div class="item f5">
+                   <div class="item c-remarks">
                        <label>Remarks</label>
                        <div class="boxDetail">
                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
                        </div>
                    </div>
 
-                   <div class="item f6">
-                       <div class="f6-1 head">
+                   <div class="item c-summary">
+                       <div class="sum-item head">
                            <div><label>Estimated Delivery Date</label></div>
                            <div><input class="form-control" /></div>
                        </div>
-                        <div class="f6-1">
+                        <div class="sum-item">
                            <div><label>Sub-total</label></div>
                            <div>40.033</div>
                        </div>
-                        <div class="f6-1">
+                        <div class="sum-item">
                            <div><label>Shpping</label></div>
                            <div><input class="form-control" /></div>
                        </div>
-                       <div class="f6-1">
+                       <div class="sum-item">
                            <div><label>Special Discount</label></div>
                            <div><input class="form-control" /></div>
                        </div>
-                       <div class="f6-1 head">
+                       <div class="sum-item head">
                            <div><label>Tax</label></div>
                            <div><button class="btn btn-default">20</button> 33%</div>
                        </div>
-                       <div class="f6-1">
+                       <div class="sum-item">
                            <div><h4>Total</h4></div>
                            <div><h4>THB 77,777x.03</h4></div>
                        </div>
                    </div>
 
                </div>
+               
             </div>
             
         </div>

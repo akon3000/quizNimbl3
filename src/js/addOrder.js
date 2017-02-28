@@ -10,24 +10,35 @@ const AddOrder = Vue.extend({
     },
     methods: {
         opaOn: function(){
+            
+            // condition for rotate img plus.
             this.focus = true
-            const elf3 = this.$el.querySelector('.item.f3 .boxDetail')
-            const elf4 = this.$el.querySelector('.item.f4')
-            $('.add-opa').removeClass("hide")
-            $(elf3).css({
-                'width': elf3.offsetWidth + 'px',
-                'position': 'absolute',
-                'z-index': '100'
-            })
-            $(elf4).css('margin-top', elf3.offsetHeight + 'px')
+
+            // Find position for elbelowFill.
+            const style = window.getComputedStyle(this.elbelowFill) // Get Style element First below AddOrder element.
+            const sumMargin = parseInt(style.marginTop) + parseInt(style.marginBottom) // sum marginTop & marginBottom.
+            
+            // show blackdrop at inside content.
+            $('.add-opa').removeClass("hide") 
+            
+            // set element for animation focus event.
+            $(this.elfill).css({ 'width': this.elfill.offsetWidth + 'px', 'position': 'absolute','z-index': '100'})
+
+            $(this.elbelowFill).css('margin-top', this.elfill.offsetHeight + sumMargin + 'px')
         },
         opaOff: function(){
+            
+            // condition for rotate img plus.
             this.focus = false
-            const elf3 = this.$el.querySelector('.item.f3 .boxDetail')
-            const elf4 = this.$el.querySelector('.item.f4')
+
+            // hide blackdrop at inside content.
             $('.add-opa').addClass("hide")
-            $(elf4).removeAttr('style')
-            $(elf3).removeAttr('style')
+            
+            // rollback style element First below AddOrder element to default.
+            $(this.elbelowFill).removeAttr('style')
+
+            // rollback style element for animation focus event to default.
+            $(this.elfill).removeAttr('style')
         },
         opaKeyup: function() {
             const self = this
