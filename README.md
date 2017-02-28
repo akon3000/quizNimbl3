@@ -6,7 +6,7 @@
 
 1. `npm install` ( load package module )
 1. `bower install` ( load conponents )
-2. `grunt` ( run the project )
+2. `npm start` ( run the project )
 
 So!! Finally, easy it work.
 
