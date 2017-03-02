@@ -5,8 +5,8 @@
 - run command follow below
 
 1. `npm install` ( load package module )
-1. `bower install` ( load conponents )
-2. `npm start` ( run the project )
+2. `bower install` ( load components )
+3. `npm run start` ( run the project ) or `npm run dev` ( run the project for devMode )
 
 So!! Finally, easy it work.
 
