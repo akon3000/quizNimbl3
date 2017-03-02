@@ -4,7 +4,8 @@
   "description": "for testing interview with Nimbl3 ",
   "main": "index.js",
   "scripts": {
-    "start": "grunt build"
+    "start": "grunt build",
+    "dev": "grunt"
   },
   "author": "",
   "license": "ISC",
